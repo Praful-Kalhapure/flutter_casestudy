@@ -62,13 +62,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 16.0),
                   ElevatedButton(
                     onPressed: () {
-                      // Reset previous error messages
                       setState(() {
                         _emailError = '';
                         _passwordError = '';
                       });
 
-                      // Validate email
                       String email = _emailController.text;
                       if (!isValidEmail(email)) {
                         setState(() {
@@ -77,7 +75,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         return;
                       }
 
-                      // Validate password
                       String password = _passwordController.text;
 
                       if (password != '123') {
@@ -87,7 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         return;
                       }
 
-                      // Simulate a successful login
                       _loginSuccess();
                     },
                     style: ButtonStyle(
@@ -103,7 +99,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 8.0),
                   TextButton(
                     onPressed: () {
-                      // Navigate to ForgetPasswordScreen
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -134,13 +129,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // Simple email validation function
   bool isValidEmail(String email) {
     // Replace this with a more comprehensive email validation logic if needed
     return email.contains('@');
   }
 
-  // Simulate a successful login
   void _loginSuccess() {
     Navigator.pushReplacement(
       context,
