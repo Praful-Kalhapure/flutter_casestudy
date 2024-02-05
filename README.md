@@ -3,8 +3,11 @@
 1 .First of all add required dependices to the app
 
   firebase_core:
+  
   firebase_auth:
+  
   cloud_firestore:
+  
 
 2 open the files provided 
 
