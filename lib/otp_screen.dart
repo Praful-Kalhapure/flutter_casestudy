@@ -23,7 +23,7 @@ class _OTPScreenState extends State<OTPScreen> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.blue, // Set background color to blue
+          color: Colors.blue, 
         ),
         child: Center(
           child: Card(
@@ -50,20 +50,16 @@ class _OTPScreenState extends State<OTPScreen> {
                   SizedBox(height: 32.0),
                   ElevatedButton(
                     onPressed: () {
-                      // Reset previous error message
                       setState(() {
                         _otpError = '';
                       });
 
-                      // Validate OTP
                       String enteredOTP = _otpController.text;
-                      String correctOTP = '123'; // Replace with your actual OTP
+                      String correctOTP = '123'; 
 
                       if (enteredOTP == correctOTP) {
-                        // OTP is correct, show registration success message
                         _showRegistrationSuccess(context);
                       } else {
-                        // OTP is incorrect, show error message
                         setState(() {
                           _otpError = 'Incorrect OTP, please try again , enter 123';
                         });
@@ -95,7 +91,6 @@ class _OTPScreenState extends State<OTPScreen> {
           actions: [
             TextButton(
               onPressed: () {
-                // Navigate to the login screen
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => LoginScreen()),
