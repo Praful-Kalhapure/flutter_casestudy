@@ -33,17 +33,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Future<void> _storeUserData(String email) async {
     try {
-      // Get a reference to the Firestore database
-      FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-      // Get the current user's UID
       User? user = FirebaseAuth.instance.currentUser;
       String uid = user!.uid;
 
-      // Store user data in the 'users' collection
       await firestore.collection('users').doc(uid).set({
         'email': email,
-        // Add more fields as needed
       }).then((_) {
         print("User data stored successfully!");
       }).catchError((error) {
@@ -62,7 +57,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.blue, // Set background color to blue
+          color: Colors.blue,
         ),
         child: Center(
           child: Card(
@@ -103,13 +98,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(height: 32.0),
                   ElevatedButton(
                     onPressed: () async {
-                      // Reset previous error messages
                       setState(() {
                         _emailError = '';
                         _passwordError = '';
                       });
 
-                      // Validate email
                       String email = _emailController.text;
                       if (!email.contains('@')) {
                         setState(() {
@@ -118,7 +111,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return;
                       }
 
-                      // Validate password match
                       String password = _passwordController.text;
                       String confirmPassword = _confirmPasswordController.text;
 
@@ -129,11 +121,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return;
                       }
 
-                      // Passwords match, store data in Firebase
                       await _storeUserData(email);
 
 
-                      // Navigate to OTP screen
                       Navigator.push(
                         context,
                         MaterialPageRoute(
