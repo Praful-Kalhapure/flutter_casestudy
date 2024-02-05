@@ -1,6 +1,7 @@
 # flutter_casestudy
 
 1 .First of all add required dependices to the app
+
   firebase_core:
   firebase_auth:
   cloud_firestore:
