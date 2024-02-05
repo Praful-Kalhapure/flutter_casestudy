@@ -25,7 +25,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.blue, // Set background color to blue
+          color: Colors.blue, 
         ),
         child: Center(
           child: Card(
@@ -104,7 +104,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
                         // Validate OTP
                         String enteredOTP = _otpController.text;
-                        String correctOTP = '123456'; // Replace with your actual OTP
+                        String correctOTP = '123456'; 
 
                         if (enteredOTP != correctOTP) {
                           setState(() {
@@ -113,7 +113,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           return;
                         }
 
-                        // Validate new password and confirm password match
                         String newPassword = _newPasswordController.text;
                         String confirmPassword = _confirmPasswordController.text;
 
@@ -124,7 +123,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           return;
                         }
 
-                        // Passwords match, show success message
                         _showPasswordResetSuccess(context);
                       },
                       child: Text('Reset Password'),
@@ -139,23 +137,17 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     );
   }
 
-  // Simple email validation function
   bool isValidEmail(String email) {
-    // Replace this with a more comprehensive email validation logic if needed
     return email.contains('@');
   }
 
-  // Simulate sending OTP to email
   void _sendOTP() {
-    // Simulate sending OTP
-    // You can implement your actual OTP sending logic here
     print('OTP Sent to ${_forgetEmailController.text}');
     setState(() {
       _otpSent = true;
     });
   }
 
-  // Show password reset success message
   void _showPasswordResetSuccess(BuildContext context) {
     showDialog(
       context: context,
@@ -166,7 +158,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           actions: [
             TextButton(
               onPressed: () {
-                // Navigate to the login screen
                 Navigator.popUntil(context, ModalRoute.withName('/'));
               },
               child: Text('OK'),
