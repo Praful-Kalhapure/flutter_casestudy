@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart'; // Import your login screen file
+import 'login_screen.dart'; 
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -11,7 +11,6 @@ class DashboardScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.logout),
             onPressed: () {
-              // Add the logic to navigate to the login screen when logout is pressed
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => LoginScreen()),
